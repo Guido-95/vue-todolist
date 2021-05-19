@@ -10,20 +10,38 @@
     <title> Vue lista </title>
 </head>
 <body>
-
+    <!-- root -->
     <div id="root">
-        
-        <input type="text" @keydown.enter="aggiungi" v-model="testoInput" placeholder="scrivi qui.."> 
-        <button @click="aggiungi"> Aggiungi lista </button>
+        <!-- titolo -->
+        <h1> Lista con Vue</h1>
+        <!-- /titolo -->
+        <!-- testo da inserire -->
+        <div class="input">
+            <input type="text" @keydown.enter="aggiungi" v-model="testoInput" placeholder="scrivi qui.."> 
+            <button @click="aggiungi"> Aggiungi lista </button>
+        </div>
+        <!-- /testo da inserire -->
+        <!-- ul -->
         <ul v-if="lista.length > 0"> 
+            <!-- li che cicla sugli elementi -->
             <li v-for="elemento,contatore in lista">
-                <div class="lista" @click="spunta(contatore)" :class="elemento.completata ? 'barra' : '' ">{{ elemento.testo }}</div>
-                
+                <div class="lista"> 
+                    <span @click="spunta(contatore)" :class="elemento.completata ? 'barra' : '' "> 
+                        {{ elemento.testo }}
+                    </span>
+                </div>
                 <i class="fas fa-times-circle" @click="rimuovi(contatore)" ></i>
             </li>
+            <!-- li che cicla sugli elementi -->
         </ul>
+        <!-- /ul -->
+        <!-- scrive se non ci sono elementi nella lista -->
         <h1 v-else> Non ci sono cose da fare!</h1>
+        <!-- /scrive se non ci sono elementi nella lista -->
     </div>
+    <!-- /root -->
+
+    
 
 
     <script type="text/javascript" src="js/script.js"></script>

@@ -37,17 +37,19 @@ var app = new Vue(
     },
     
     methods: {
+        // aggiunge un elemento alla lista
         aggiungi :function(){
             this.lista.push({ testo:this.testoInput , completata:false });
             this.testoInput = "";  
         },
-       
+       // rimuove un elemento alla lista
         rimuovi : function(contatoreCiclo){
             this.lista.splice(contatoreCiclo,1);  
         },
 
+        // spunta un elemento della lista
         spunta : function(contatoreCiclo){
-
+            // toggle
             this.lista[contatoreCiclo].completata = !this.lista[contatoreCiclo].completata;
            
         }
